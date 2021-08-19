@@ -38,3 +38,8 @@ SELECT restaurants.id, restaurants.name,restaurants.location,restaurants.price_r
 
 
 SELECT restaurants.id,restaurants.name,restaurants.location,restaurants.price_range, TRUNC(AVG(reviews.rating)), SUM(reviews.rating) FROM restaurants LEFT JOIN reviews ON (restaurants.id = reviews.restaurant_id) GROUP BY (restaurants.id,restaurants.name,restaurants.location,restaurants.price_range);
+
+
+
+
+SELECT restaurants.id,restaurants.name,restaurants.location,restaurants.price_range, TRUNC(AVG(reviews.rating)) as avg_rating , COUNT(reviews.rating) FROM restaurants LEFT JOIN reviews ON (restaurants.id = reviews.restaurant_id) GROUP BY(restaurants.name,restaurants.location,restaurants.price_range,restaurants.id);
